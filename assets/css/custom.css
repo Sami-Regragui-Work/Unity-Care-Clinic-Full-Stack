@@ -1,1 +1,32 @@
 @import "tailwindcss";
+
+.body__aside {
+    @apply w-[60px] overflow-hidden hover:w-[256px] transition-all duration-300;
+}
+
+button {
+    @apply cursor-pointer;
+}
+
+.body__main {
+    @apply ml-[60px] w-[calc(100%-60px)];
+    /* width: calc(100% - 60px); */
+}
+
+.body__aside:hover ~ .body__main {
+    @apply ml-[256px] w-[calc(100%-256px)];
+}
+
+.main__main > div::scroll-marker,
+.main__main > div::-webkit-scrollbar {
+    @apply hidden;
+}
+
+.modal--scroll::scroll-marker,
+.modal--scroll::-webkit-scrollbar {
+    @apply hidden;
+}
+
+.body--no-scroll {
+    @apply overflow-hidden;
+}
