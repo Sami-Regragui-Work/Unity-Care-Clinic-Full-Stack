@@ -26,8 +26,6 @@ $_SESSION["urlStart"] = $urlStart;
 </head>
 
 <body class="bg-[#030712]">
-    <?php require "{$urlStart}component/header.php"; ?>
-
     <div class="flex min-h-screen">
         <?php require "{$urlStart}component/sidebar.php"; ?>
 
