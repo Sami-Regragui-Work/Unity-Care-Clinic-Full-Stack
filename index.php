@@ -18,7 +18,7 @@ $_SESSION["urlStart"] = $urlStart;
     <title>Admin Dashboard - UCC</title>
 
     <!-- jquery -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
     <!-- CRUD logic (generic for all tables) -->
     <script src="assets/js/crud.js" type="module" defer></script>
     <!-- Sidebar navigation + section loading -->

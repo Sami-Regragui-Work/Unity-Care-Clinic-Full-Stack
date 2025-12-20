@@ -1,5 +1,5 @@
 <aside
-    id="default-sidebar"
+    id="sidebar"
     class="body__aside fixed top-0 left-0 z-40 h-screen
            transition-all duration-300
            sm:h-screen sm:w-[60px] sm:overflow-hidden
