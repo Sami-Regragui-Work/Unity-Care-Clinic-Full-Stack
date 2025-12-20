@@ -1,5 +1,6 @@
-import { reRunCrud } from "./crud.js";
 import "/node_modules/jquery/dist/jquery.min.js";
+import { reRunCrud } from "./crud.js";
+import { dashboardStart } from "./dashboard.js";
 
 const sidebar = $("#sidebar");
 const contentArticle = $("#dynamic-content");
@@ -7,19 +8,19 @@ const modalArticle = $("#hidden-modal");
 
 const sections = {
     dashboard: {
-        url: "assets/php/dashboard.php",
+        url: "assets/php/section/dashboard.php",
         hasTable: false,
     },
     patients: {
-        url: "assets/php/dynamicTable.php",
+        url: "assets/php/section/dynamicTable.php",
         hasTable: true,
     },
     doctors: {
-        url: "assets/php/dynamicTable.php",
+        url: "assets/php/section/dynamicTable.php",
         hasTable: true,
     },
     departments: {
-        url: "assets/php/dynamicTable.php",
+        url: "assets/php/section/dynamicTable.php",
         hasTable: true,
     },
 };
@@ -43,7 +44,7 @@ function loadSection(sectionName) {
             url.searchParams.set("section", sectionName);
             window.history.pushState({}, "", url.toString());
 
-            reRunCrud();
+            sectionName == "dashboard" ? dashboardStart() : reRunCrud();
         },
         error: (xhr, _, err) => {
             //xhr, status, error

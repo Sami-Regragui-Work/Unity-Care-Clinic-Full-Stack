@@ -19,6 +19,15 @@ $_SESSION["urlStart"] = $urlStart;
 
     <!-- jquery -->
     <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
+    <!-- chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- <script type="importmap">
+        {
+            "imports": {
+                "@kurkle/color": "/node_modules/@kurkle/color/dist/color.esm.js"
+            }
+        }
+    </script> -->
     <!-- CRUD logic (generic for all tables) -->
     <script src="assets/js/crud.js" type="module" defer></script>
     <!-- Sidebar navigation + section loading -->
