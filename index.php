@@ -9,7 +9,7 @@ require_once "{$urlStart}dbLink.php";
 $_SESSION["urlStart"] = $urlStart;
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
     <meta charset="UTF-8" />

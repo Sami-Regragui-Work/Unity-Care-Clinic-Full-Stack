@@ -1,3 +1,4 @@
+@config "../conf/tailwind.config.js";
 @import "tailwindcss";
 
 .body__aside {

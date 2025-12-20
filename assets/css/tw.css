@@ -457,42 +457,57 @@
     }
   }
   .dark\:border-gray-500 {
-    @media (prefers-color-scheme: dark) {
+    &:is(.dark *) {
       border-color: var(--color-gray-500);
     }
   }
   .dark\:border-gray-700 {
-    @media (prefers-color-scheme: dark) {
+    &:is(.dark *) {
       border-color: var(--color-gray-700);
     }
   }
   .dark\:bg-gray-700 {
-    @media (prefers-color-scheme: dark) {
+    &:is(.dark *) {
       background-color: var(--color-gray-700);
     }
   }
   .dark\:bg-gray-800 {
-    @media (prefers-color-scheme: dark) {
+    &:is(.dark *) {
       background-color: var(--color-gray-800);
     }
   }
+  .dark\:text-\[\#3b82f6\] {
+    &:is(.dark *) {
+      color: #3b82f6;
+    }
+  }
+  .dark\:text-\[\#22c55e\] {
+    &:is(.dark *) {
+      color: #22c55e;
+    }
+  }
+  .dark\:text-\[\#eab308\] {
+    &:is(.dark *) {
+      color: #eab308;
+    }
+  }
   .dark\:text-gray-100 {
-    @media (prefers-color-scheme: dark) {
+    &:is(.dark *) {
       color: var(--color-gray-100);
     }
   }
   .dark\:text-gray-400 {
-    @media (prefers-color-scheme: dark) {
+    &:is(.dark *) {
       color: var(--color-gray-400);
     }
   }
   .dark\:text-white {
-    @media (prefers-color-scheme: dark) {
+    &:is(.dark *) {
       color: var(--color-white);
     }
   }
   .dark\:group-hover\:text-white {
-    @media (prefers-color-scheme: dark) {
+    &:is(.dark *) {
       &:is(:where(.group):hover *) {
         @media (hover: hover) {
           color: var(--color-white);
@@ -501,7 +516,7 @@
     }
   }
   .dark\:hover\:bg-gray-600 {
-    @media (prefers-color-scheme: dark) {
+    &:is(.dark *) {
       &:hover {
         @media (hover: hover) {
           background-color: var(--color-gray-600);
@@ -510,7 +525,7 @@
     }
   }
   .dark\:hover\:bg-gray-700 {
-    @media (prefers-color-scheme: dark) {
+    &:is(.dark *) {
       &:hover {
         @media (hover: hover) {
           background-color: var(--color-gray-700);

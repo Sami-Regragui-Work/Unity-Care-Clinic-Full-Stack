@@ -35,19 +35,19 @@ ob_start();
     <div class="grid gap-4 sm:grid-cols-3 [&>div]:overflow-hidden">
         <div class="p-4 bg-white rounded-lg shadow dark:bg-gray-800">
             <h2 class="text-sm font-medium text-gray-500 dark:text-gray-400">Patients</h2>
-            <p class="mt-2 text-2xl font-semibold text-gray-900 dark:text-white">
+            <p class="mt-2 text-2xl font-semibold text-gray-900 dark:text-[#3b82f6]">
                 <?= $rowsNum['patients'] ?>
             </p>
         </div>
         <div class="p-4 bg-white rounded-lg shadow dark:bg-gray-800">
             <h2 class="text-sm font-medium text-gray-500 dark:text-gray-400">Doctors</h2>
-            <p class="mt-2 text-2xl font-semibold text-gray-900 dark:text-white">
+            <p class="mt-2 text-2xl font-semibold text-gray-900 dark:text-[#22c55e]">
                 <?= $rowsNum['doctors'] ?>
             </p>
         </div>
         <div class="p-4 bg-white rounded-lg shadow dark:bg-gray-800">
             <h2 class="text-sm font-medium text-gray-500 dark:text-gray-400">Departments</h2>
-            <p class="mt-2 text-2xl font-semibold text-gray-900 dark:text-white">
+            <p class="mt-2 text-2xl font-semibold text-gray-900 dark:text-[#eab308]">
                 <?= $rowsNum['departments'] ?>
             </p>
         </div>
