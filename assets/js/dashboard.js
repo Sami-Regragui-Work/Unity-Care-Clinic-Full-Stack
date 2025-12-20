@@ -1,5 +1,5 @@
-// import "/node_modules/@kurkle/color/dist/color.esm.js";
-// import { Chart } from "/node_modules/chart.js/auto/auto.js";
+import "/node_modules/@kurkle/color/dist/color.esm.js";
+import { Chart } from "/node_modules/chart.js/auto/auto.js";
 
 function dashboardStart() {
     const dashboard = $("#dashboard");
