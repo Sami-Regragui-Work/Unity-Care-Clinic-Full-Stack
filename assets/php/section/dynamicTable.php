@@ -20,7 +20,9 @@ if (!in_array($table, $allowedTables)) {
 
 // pagination
 $pageInd = max(1, (int)($_GET['pageInd'] ?? 1));
-$rowPerPage = 20;
+// $rowPerPage = 20;
+// i'm going to hard code 50 rowPerPage until adding paginiation scripts later
+$rowPerPage = 50;
 $offset = ($pageInd - 1) * $rowPerPage;
 
 // search
