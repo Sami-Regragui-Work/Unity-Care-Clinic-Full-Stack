@@ -23,10 +23,14 @@ const sections = {
         url: "assets/php/section/dynamicTable.php",
         hasTable: true,
     },
+    error: {
+        url: "assets/php/section/dynamicTable.php",
+        hasTable: true,
+    },
 };
 
 function loadSection(sectionName) {
-    const sectionObj = sections[sectionName] || sections.dashboard;
+    const sectionObj = sections[sectionName] || sections.error;
 
     const content = {}; // dataObj for ajax
     if (sectionObj.hasTable) content.tableName = sectionName;
@@ -47,6 +51,7 @@ function loadSection(sectionName) {
             sectionName == "dashboard" ? dashboardStart() : reRunCrud();
         },
         error: (xhr, _, err) => {
+            if (xhr.responseJSON) contentArticle.html(xhr.responseJSON.content);
             //xhr, status, error
             console.error("couldn't load section", xhr.responseText || err);
         },

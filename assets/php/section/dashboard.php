@@ -3,26 +3,26 @@ session_start();
 require_once __DIR__ . "/../dbLink.php";
 
 $tables = ['patients', 'doctors', 'departments'];
-$rowsNum = [];
+$rowsCount = [];
 
 foreach ($tables as $table) {
     $query = <<<SQL
-    SELECT COUNT(*) AS rowsNum
+    SELECT COUNT(*) AS rowsCount
     FROM {$table}
     SQL;
 
     $res = $dbLink->query($query);
-    $row = $res ? $res->fetch_assoc() : ['rowsNum' => 0];
-    $rowsNum[$table] = (int)$row['rowsNum'];
+    $row = $res ? $res->fetch_assoc() : ['rowsCount' => 0];
+    $rowsCount[$table] = (int)$row['rowsCount'];
     if ($res) $res->free();
 }
 
 ob_start();
 ?>
 <section id="dashboard" class="p-4 space-y-6"
-    data-patients="<?= $rowsNum['patients'] ?>"
-    data-doctors="<?= $rowsNum['doctors'] ?>"
-    data-departments="<?= $rowsNum['departments'] ?>">
+    data-patients="<?= $rowsCount['patients'] ?>"
+    data-doctors="<?= $rowsCount['doctors'] ?>"
+    data-departments="<?= $rowsCount['departments'] ?>">
     <header>
         <h1 class="text-2xl font-semibold text-gray-900 dark:text-white">
             Dashboard
@@ -36,19 +36,19 @@ ob_start();
         <div class="p-4 bg-white rounded-lg shadow dark:bg-gray-800">
             <h2 class="text-sm font-medium text-gray-500 dark:text-gray-400">Patients</h2>
             <p class="mt-2 text-2xl font-semibold text-gray-900 dark:text-[#3b82f6]">
-                <?= $rowsNum['patients'] ?>
+                <?= $rowsCount['patients'] ?>
             </p>
         </div>
         <div class="p-4 bg-white rounded-lg shadow dark:bg-gray-800">
             <h2 class="text-sm font-medium text-gray-500 dark:text-gray-400">Doctors</h2>
             <p class="mt-2 text-2xl font-semibold text-gray-900 dark:text-[#22c55e]">
-                <?= $rowsNum['doctors'] ?>
+                <?= $rowsCount['doctors'] ?>
             </p>
         </div>
         <div class="p-4 bg-white rounded-lg shadow dark:bg-gray-800">
             <h2 class="text-sm font-medium text-gray-500 dark:text-gray-400">Departments</h2>
             <p class="mt-2 text-2xl font-semibold text-gray-900 dark:text-[#eab308]">
-                <?= $rowsNum['departments'] ?>
+                <?= $rowsCount['departments'] ?>
             </p>
         </div>
     </div>

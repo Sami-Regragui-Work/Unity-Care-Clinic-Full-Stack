@@ -48,8 +48,8 @@ button {
     @apply cursor-pointer;
 }
 
-.main__main > div::scroll-marker,
-.main__main > div::-webkit-scrollbar {
+.main__main::scroll-marker,
+.main__main::-webkit-scrollbar {
     @apply hidden;
 }
 
