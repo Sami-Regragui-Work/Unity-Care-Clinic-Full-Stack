@@ -34,3 +34,15 @@ ALTER TABLE doctors
 ADD CONSTRAINT doctors_departements
 FOREIGN KEY (department_id)
 REFERENCES departments(department_id);
+
+ALTER TABLE doctors
+MODIFY COLUMN department_id INT NULL;
+
+ALTER TABLE doctors
+DROP FOREIGN KEY doctors_departements;
+
+ALTER TABLE doctors
+ADD CONSTRAINT doctors_departements
+FOREIGN KEY (department_id)
+REFERENCES departments(department_id)
+ON DELETE SET NULL;
