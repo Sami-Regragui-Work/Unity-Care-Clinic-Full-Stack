@@ -2,7 +2,20 @@
 
 A modern, full-stack clinic management system built with PHP, MySQL, Tailwind CSS, and jQuery. Features dynamic CRUD operations, reusable modals, and a clean, responsive interface for managing patients, doctors, and departments.
 
-## 🎯 Project Overview
+## 📑 Table of Contents
+
+-   [Project Overview](#project-overview)
+-   [Tech Stack](#tech-stack)
+-   [Project Structure](#project-structure)
+-   [Installation & Setup](#installation-setup)
+-   [Database Schema](#database-schema)
+-   [Features Breakdown](#features-breakdown)
+-   [Available Scripts](#available-scripts)
+-   [Use Case Diagram](#use-case-diagram)
+-   [License](#license)
+-   [Contributing](#contributing)
+
+## <h2 id="project-overview">🎯 Project Overview</h2>
 
 This mini-project demonstrates a complete clinic management workflow with a focus on clean architecture, reusable components, and modern UI/UX patterns. Built as a learning exercise and portfolio piece showcasing full-stack PHP development with contemporary frontend tooling.
 
@@ -15,7 +28,7 @@ This mini-project demonstrates a complete clinic management workflow with a focu
 -   Dark mode support
 -   Responsive design (mobile/desktop)
 
-## 🛠️ Tech Stack
+## <h2 id="tech-stack">🛠️ Tech Stack</h2>
 
 **Frontend:**
 
@@ -37,7 +50,7 @@ This mini-project demonstrates a complete clinic management workflow with a focu
 -   Browsersync (live reload)
 -   Concurrently (parallel scripts)
 
-## 📁 Project Structure
+## <h2 id="project-structure">📁 Project Structure</h2>
 
 ```
 .
@@ -77,7 +90,7 @@ This mini-project demonstrates a complete clinic management workflow with a focu
 └── README.md
 ```
 
-## 🚀 Installation & Setup
+## <h2 id="installation-setup">🚀 Installation & Setup</h2>
 
 1. **Clone the repository**
 
@@ -115,7 +128,7 @@ This mini-project demonstrates a complete clinic management workflow with a focu
     - Open `http://localhost:3000` (or your configured port)
     - Or serve via XAMPP/Laragon and navigate to `index.php`
 
-## 📊 Database Schema
+## <h2 id="database-schema">📊 Database Schema</h2>
 
 The system uses three main tables with relationships:
 
@@ -127,9 +140,9 @@ The system uses three main tables with relationships:
 
 -   `doctors.department_id` → `departments.department_id` (Foreign Key)
 
-View the complete ERD: `assets/media/ERD_UCCV1.png`
+**View the complete ERD:** `assets/media/ERD_UCCV1.png`
 
-## 🎨 Features Breakdown
+## <h2 id="features-breakdown">🎨 Features Breakdown</h2>
 
 **Dashboard:**
 
@@ -156,7 +169,7 @@ View the complete ERD: `assets/media/ERD_UCCV1.png`
 -   Dark mode support
 -   Smooth transitions and hover effects
 
-## 📜 Available Scripts
+## <h2 id="available-scripts">📜 Available Scripts</h2>
 
 ```bash
 npm run tw      # Watch Tailwind CSS changes
@@ -164,25 +177,26 @@ npm run bs      # Start Browsersync server
 npm run bstw    # Run both Tailwind & Browsersync
 ```
 
-## 🗺️ Use Case Diagram
+## <h2 id="use-case-diagram">🗺️ Use Case Diagram</h2>
 
-View the complete use case diagram: `assets/media/USECASE_UCCV1.png`
+**View the complete use case diagram:** `assets/media/USECASE_UCCV1.png`
 
 **Main Actor:** Admin
 
 **Primary Use Cases:**
 
+-   Log in (support planned)
 -   Manage Patients (CRUD)
 -   Manage Doctors (CRUD)
 -   Manage Departments (CRUD)
 -   View Dashboard Statistics
 -   Change Language (EN/FR/AR support planned)
 
-## 📝 License
+## <h2 id="license">📝 License</h2>
 
 This project is open source and available for educational purposes.
 
-## 🤝 Contributing
+## <h2 id="contributing">🤝 Contributing</h2>
 
 This is a learning project, but suggestions and improvements are welcome! Feel free to open an issue or submit a pull request.
 
