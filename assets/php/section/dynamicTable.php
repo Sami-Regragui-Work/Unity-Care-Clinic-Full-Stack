@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once __DIR__ . "/../dbLink.php";
+require_once __DIR__ . "/../modals/addForms.php";
 
 $allowedTables = ["patients", "doctors", "departments"];
 
@@ -42,6 +43,9 @@ if ($colsRes) {
     $searchableCols = array_column($cols, 'Field');
     $colsRes->free();
 }
+
+$_SESSION[$table] ??= [];
+$_SESSION[$table]['searchableCols'] = $searchableCols;
 
 if (!empty($search)) {
     if ($searchableCols) {
@@ -132,6 +136,7 @@ ob_start();
                 Listing of <?= $title ?>.
             </p>
         </div>
+
         <div class="flex gap-2">
             <input
                 type="search"
@@ -140,8 +145,19 @@ ob_start();
                 placeholder="Search..."
                 class="w-full sm:w-64 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 dark:focus:border-indigo-400 dark:focus:ring-indigo-400"
                 data-role="table-search">
+
+            <button
+                type="button"
+                class="inline-flex items-center rounded-md border border-blue-300 bg-white px-3 py-2 text-sm font-medium text-blue-700 hover:bg-blue-50 dark:border-blue-700 dark:bg-gray-900 dark:text-blue-300 dark:hover:bg-blue-950"
+                data-role="table-add"
+                data-table="<?= $table ?>">
+                + Add
+            </button>
+
+
         </div>
     </header>
+
 
     <main class="main__main overflow-x-auto bg-white shadow rounded-lg dark:bg-gray-800">
         <table class="min-w-full text-sm text-left text-gray-700 dark:text-gray-200">
@@ -152,12 +168,15 @@ ob_start();
                             <?= htmlspecialchars($col, ENT_QUOTES, 'UTF-8') ?>
                         </th>
                     <?php endforeach; ?>
+                    <th scope="col" class="px-4 py-3 text-right whitespace-nowrap">
+                        Actions
+                    </th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
                 <?php if (empty($rows)): ?>
                     <tr>
-                        <td colspan="<?= max(1, count($searchableCols)) ?>" class="px-4 py-6 text-center text-sm text-gray-500 dark:text-gray-400">
+                        <td colspan="<?= max(1, count($searchableCols) + 1) ?>" class="px-4 py-6 text-center text-sm text-gray-500 dark:text-gray-400">
                             Table is still empty
                         </td>
                     </tr>
@@ -176,10 +195,32 @@ ob_start();
                                     ?>
                                 </td>
                             <?php endforeach; ?>
+
+                            <?php $id = (int)($row['id'] ?? 0); ?>
+                            <td class="actions px-4 py-3 whitespace-nowrap text-right text-xs font-medium space-x-2">
+                                <button
+                                    type="button"
+                                    class="inline-flex items-center rounded-md border border-yellow-300 bg-white px-2 py-1 text-xs font-medium text-yellow-700 hover:bg-yellow-50 disabled:cursor-not-allowed disabled:opacity-50 dark:border-yellow-600 dark:bg-gray-900 dark:text-yellow-300 dark:hover:bg-yellow-950"
+                                    data-role="table-edit"
+                                    data-table="<?= $table ?>"
+                                    data-id="<?= $id ?>">
+                                    Edit
+                                </button>
+                                <button
+                                    type="button"
+                                    class="inline-flex items-center rounded-md border border-red-300 bg-white px-2 py-1 text-xs font-medium text-red-700 hover:bg-red-50 dark:border-red-700 dark:bg-gray-900 dark:text-red-300 dark:hover:bg-red-950"
+                                    data-role="table-delete"
+                                    data-table="<?= $table ?>"
+                                    data-id="<?= $id ?>">
+                                    Delete
+                                </button>
+                            </td>
+
                         </tr>
                     <?php endforeach; ?>
                 <?php endif; ?>
             </tbody>
+
         </table>
     </main>
 
@@ -222,8 +263,11 @@ ob_start();
 <?php
 $content = ob_get_clean();
 
+$modal = $addForms[$table] ?? "";
+
+
 header('Content-Type: application/json; charset=utf-8');
 echo json_encode([
     'content' => $content,
-    'modal'   => null,
+    'modal'   => $modal,
 ]);

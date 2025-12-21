@@ -50,8 +50,14 @@ $_SESSION["urlStart"] = $urlStart;
         </main>
 
         <!-- modal wrapper -->
-        <article id="hidden-modal">
-            <!-- updated by AJAX if needed -->
+        <article
+            id="hidden-modal"
+            class="fixed inset-0 z-50 hidden items-center justify-center overflow-x-hidden overflow-y-auto bg-black/50">
+            <div
+                id="hidden-modal-inner"
+                class="relative w-full max-w-2xl px-4 mx-auto">
+                <!-- updated by AJAX if needed -->
+            </div>
         </article>
     </div>
 </body>

@@ -4,7 +4,8 @@ import { dashboardStart } from "./dashboard.js";
 
 const sidebar = $("#sidebar");
 const contentArticle = $("#dynamic-content");
-const modalArticle = $("#hidden-modal");
+const modalSection = $("#hidden-modal");
+const modalInnerWrapper = modalSection.children("div");
 
 const sections = {
     dashboard: {
@@ -42,7 +43,9 @@ function loadSection(sectionName) {
         data: content,
         success: (res) => {
             contentArticle.html(res.content);
-            res.modal ? modalArticle.html(res.modal) : modalArticle.empty();
+            res.modal
+                ? modalInnerWrapper.html(res.modal)
+                : modalInnerWrapper.empty();
 
             const url = new URL(window.location.href);
             url.searchParams.set("section", sectionName);
