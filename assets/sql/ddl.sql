@@ -23,7 +23,7 @@ CREATE TABLE doctors (
     doctor_id INT PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
-    specialiazation VARCHAR(50),
+    specialization VARCHAR(50),
     phone_number VARCHAR(15) UNIQUE NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
 

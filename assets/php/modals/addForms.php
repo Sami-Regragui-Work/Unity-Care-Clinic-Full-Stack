@@ -18,7 +18,7 @@ if ($enumRes && ($enumRow = $enumRes->fetch_assoc())) {
     if (str_starts_with($enumStr, "enum(")) {
         $enumTypesStr = substr($enumStr, 5, -1);
         $genderOptions = array_map(
-            fn($option) => trim(htmlspecialchars($option, ENT_QUOTES, "UTF-8"), " '\""), // trim spaces and single quotes or double quotes
+            fn($option) => htmlspecialchars(trim($option, " '\""), ENT_QUOTES, "UTF-8"), // trim spaces and single quotes or double quotes
             explode(',', $enumTypesStr)
         );
     }
@@ -73,7 +73,7 @@ ob_start();
 
     <!-- Body -->
     <div class="p-6 space-y-6">
-        <form data-form="patients" autocomplete="off" data-table="patients">
+        <form id="add-form" data-form="patients" autocomplete="off" data-table="patients">
             <input type="hidden" name="patient_id" aria-hidden="true" />
 
             <div class="grid grid-cols-6 gap-6">
@@ -197,7 +197,7 @@ ob_start();
         </button>
         <button
             type="submit"
-            form="add-patient-form"
+            form="add-form"
             class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300
              font-medium rounded-lg text-sm px-5 py-2.5 text-center
              dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
@@ -242,7 +242,7 @@ ob_start();
 
     <!-- Body -->
     <div class="p-6 space-y-6">
-        <form data-form="departments" autocomplete="off" data-table="departments">
+        <form id="add-form" data-form="departments" autocomplete="off" data-table="departments">
             <!-- department_id (hidden) -->
             <input type="hidden" name="department_id" aria-hidden="true" />
 
@@ -254,7 +254,7 @@ ob_start();
                     </label>
                     <input
                         type="text"
-                        name="name"
+                        name="department_name"
                         class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm
                    rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5
                    dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
@@ -306,6 +306,7 @@ ob_start();
         </button>
         <button
             type="submit"
+            form="add-form"
             class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300
              font-medium rounded-lg text-sm px-5 py-2.5 text-center
              dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
@@ -350,7 +351,7 @@ ob_start();
 
     <!-- Body -->
     <div class="p-6 space-y-6">
-        <form data-form="doctors" autocomplete="off" data-table="doctors">
+        <form id="add-form" data-form="doctors" autocomplete="off" data-table="doctors">
             <!-- doctor_id (hidden) -->
             <input type="hidden" name="doctor_id" aria-hidden="true" />
 
@@ -469,6 +470,7 @@ ob_start();
         </button>
         <button
             type="submit"
+            form="add-form"
             class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300
              font-medium rounded-lg text-sm px-5 py-2.5 text-center
              dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"

@@ -5,16 +5,19 @@ function reRunCrud() {
     const modalArticle = $("#hidden-modal");
     const form = modalArticle.find("form");
     const tableName = form.data("table");
+    const searchInput = $("#search");
 
     function closeModal() {
         modalArticle.removeClass("flex");
         modalArticle.addClass("hidden");
         $("body").removeClass("body--no-scroll");
+        form[0].reset();
+        searchInput.removeAttr("disabled");
     }
 
     function addSubmit(e) {
         e.preventDefault();
-
+        console.log("submit");
         const formContent =
             form.serialize() + `&table=${encodeURIComponent(tableName)}`;
 
@@ -44,12 +47,14 @@ function reRunCrud() {
         modalArticle.removeClass("hidden");
         modalArticle.addClass("flex");
         $("body").addClass("body--no-scroll");
+        searchInput.prop("disabled", true);
     }
 
     contentArticle.on("click", "[data-role='table-add']", openModal);
-    modalArticle.on("submit", addSubmit);
+    form.on("submit", addSubmit);
+    modalArticle.on("click", "[data-add-cancel]", closeModal);
 }
 
-reRunCrud();
+// reRunCrud();
 
 export { reRunCrud };

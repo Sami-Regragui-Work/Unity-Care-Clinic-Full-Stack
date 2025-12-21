@@ -139,6 +139,7 @@ ob_start();
 
         <div class="flex gap-2">
             <input
+                id="search"
                 type="search"
                 name="search"
                 value="<?= $search ?>"

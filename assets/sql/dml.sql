@@ -19,7 +19,7 @@ INSERT INTO departments (department_name, location) VALUES
 ('Gastroenterology','Building D - Floor 3');
 
 -- 25 doctors (varied count with FK duplications)
-INSERT INTO doctors (first_name, last_name, specialiazation, phone_number, email, department_id) VALUES
+INSERT INTO doctors (first_name, last_name, specialization, phone_number, email, department_id) VALUES
 ('James','Adams','Cardiology','0612345001','j.adams@hospital.com',1),
 ('Linda','Baker','Neurology','0623456002','l.baker@hospital.com',2),
 ('Robert','Clark','Oncology','0634567003','r.clark@hospital.com',3),

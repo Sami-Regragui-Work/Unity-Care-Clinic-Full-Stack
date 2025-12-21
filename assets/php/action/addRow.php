@@ -53,12 +53,13 @@ ob_start();
         <?php $id = (int)($rowValues[0] ?? 0); ?>
         <button
             type="button"
-            class="inline-flex items-center rounded-md bg-blue-500 px-3 py-2 text-xs font-medium text-white shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-100 dark:focus:ring-offset-gray-900"
+            class="inline-flex items-center rounded-md border border-yellow-300 bg-white px-2 py-1 text-xs font-medium text-yellow-700 hover:bg-yellow-50 disabled:cursor-not-allowed disabled:opacity-50 dark:border-yellow-600 dark:bg-gray-900 dark:text-yellow-300 dark:hover:bg-yellow-950"
             data-role="table-edit"
             data-table="<?= $table ?>"
             data-id="<?= $id ?>">
             Edit
         </button>
+
         <button
             type="button"
             class="inline-flex items-center rounded-md border border-red-300 bg-white px-2 py-1 text-xs font-medium text-red-700 hover:bg-red-50 dark:border-red-700 dark:bg-gray-900 dark:text-red-300 dark:hover:bg-red-950"
