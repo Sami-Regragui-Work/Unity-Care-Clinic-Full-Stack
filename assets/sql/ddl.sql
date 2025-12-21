@@ -27,19 +27,8 @@ CREATE TABLE doctors (
     phone_number VARCHAR(15) UNIQUE NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
 
-    department_id INT NOT NULL
+    department_id INT NULL
 );
-
-ALTER TABLE doctors
-ADD CONSTRAINT doctors_departements
-FOREIGN KEY (department_id)
-REFERENCES departments(department_id);
-
-ALTER TABLE doctors
-MODIFY COLUMN department_id INT NULL;
-
-ALTER TABLE doctors
-DROP FOREIGN KEY doctors_departements;
 
 ALTER TABLE doctors
 ADD CONSTRAINT doctors_departements
