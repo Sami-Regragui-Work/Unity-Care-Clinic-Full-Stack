@@ -197,7 +197,8 @@ ob_start();
                                 </td>
                             <?php endforeach; ?>
 
-                            <?php $id = (int)($row['id'] ?? 0); ?>
+                            <?php $idName = $searchableCols[0];
+                            $id = (int)($row[$idName] ?? 0); ?>
                             <td class="actions px-4 py-3 whitespace-nowrap text-right text-xs font-medium space-x-2">
                                 <button
                                     type="button"

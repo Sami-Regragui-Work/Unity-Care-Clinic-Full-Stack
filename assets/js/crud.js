@@ -89,6 +89,39 @@ function reRunCrud() {
         });
     }
 
+    function deleteRow(e) {
+        e.preventDefault();
+
+        const btn = $(this);
+        const table = btn.data("table");
+        const id = btn.data("id");
+        const row = btn.closest("tr");
+
+        // console.log($("thead th").first().text().trim());
+
+        const idName = $("thead th").first().text().trim();
+
+        $.ajax({
+            url: "assets/php/action/deleteRow.php",
+            method: "POST",
+            dataType: "json",
+            data: {
+                table: table,
+                [idName]: id,
+            },
+            success(res) {
+                console.log(res.debug);
+                row.remove();
+            },
+            error: (xhr, stat, err) => {
+                console.error(
+                    "couldn't delete the row",
+                    xhr.responseText || err || stat
+                );
+            },
+        });
+    }
+
     function openModal() {
         console.log("modal is open");
         const btn = $(this);
@@ -110,7 +143,12 @@ function reRunCrud() {
         searchInput.prop("disabled", true);
     }
 
-    contentArticle.on("click", "[data-role]", openModal);
+    contentArticle.on(
+        "click",
+        "[data-role='table-add'], [data-role='table-edit']",
+        openModal
+    );
+    contentArticle.on("click", "[data-role='table-delete']", deleteRow);
     modalArticle.on("click", "[data-add-cancel]", closeModal);
 }
 
